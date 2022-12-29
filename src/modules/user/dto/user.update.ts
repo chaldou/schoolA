@@ -1,5 +1,5 @@
 import { Field } from '@nestjs/graphql';
-import { PartialType } from '@nestjs/mapped-types';
+// import { PartialType } from '@nestjs/mapped-types';
 import { UserCreateInput } from './user.input';
 
 export class UpdateUserInput {

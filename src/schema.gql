@@ -1,0 +1,136 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Cycle {
+  id: ID!
+  name: String
+  description: String
+}
+
+type Section {
+  id: ID!
+  name: String
+  description: String
+  effectif: Float!
+}
+
+type CategoriePrime {
+  id: Float!
+  nom: String
+  description: String
+}
+
+type PrimePersonnel {
+  id: Float!
+}
+
+type Prime {
+  id: Float!
+  nom: String
+  description: String
+  montant: Float!
+}
+
+type CategorieRetenu {
+  id: Float!
+  nom: String
+  description: String
+}
+
+type RetenuPersonnel {
+  id: Float!
+}
+
+type Retenue {
+  id: Float!
+  nom: String
+  description: String
+  montant: Float!
+}
+
+type SalaireBase {
+  id: Float!
+  description: String
+  montant: Float!
+}
+
+type CategoriePersonnel {
+  id: Float!
+  nom: String
+  description: String
+}
+
+type Personnel {
+  id: Float!
+  situationMatrimonial: String
+  sexe: String
+  fonction: String
+  status: String
+  dateOfStartWork: DateTime
+  dateOfBirth: DateTime
+  matricule: String
+  childNumber: Float!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type User {
+  id: String!
+  email: String
+  password: String
+  firstName: String
+  lastName: String
+  name: String!
+  phoneNumber: String
+  active: Boolean!
+  deactivatedAt: DateTime
+}
+
+type Periode {
+  id: Float!
+  nom: String
+  description: String
+  datePeriode: DateTime
+}
+
+type LoginResponse {
+  access_token: String!
+  user: User!
+}
+
+type Query {
+  findAll: [Cycle!]!
+  user(id: String!): User!
+  personnel(id: String!): Personnel!
+  salaireBase(id: String!): SalaireBase!
+  prime(id: String!): Prime!
+  categoriePrime(id: String!): CategoriePrime!
+  categoriePersonnel(id: String!): CategoriePersonnel!
+  categorieRetenu(id: String!): CategoriePrime!
+  primePersonnel(id: String!): PrimePersonnel!
+  periode(id: String!): Periode!
+  retenuPersonnel(id: String!): RetenuPersonnel!
+  section(id: String!): Section!
+  cycle(id: String!): Cycle!
+}
+
+type Mutation {
+  create(cycle: SectionCreateInput!): Section!
+  login(loginuserinput: LoginUserInput!): LoginResponse!
+}
+
+input SectionCreateInput {
+  ID: Float
+  name: String
+  description: String
+  effectif: Float! = 0
+}
+
+input LoginUserInput {
+  phone: String!
+  password: String!
+}
